@@ -1,0 +1,30 @@
+###### Editor debris ########
+
+*.org
+*~
+¥#*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.DS_Store
+*.dSYM
+
+###### Latex related #######
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+*.out
+*.dvi
+*.ent
+*.toc
+*.ps
+
+main.pdf
+main.bcf
+main.nav
+main.snm
+main.run.xml
