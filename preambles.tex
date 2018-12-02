@@ -1,4 +1,6 @@
 \documentclass[t,14pt]{beamer}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+
 \usepackage{xeCJK}
 \setCJKmainfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans Mono CJK SC}
@@ -17,6 +19,12 @@
 \usepackage{caption}
 \captionsetup[table]{skip=0mm}
 \usepackage{float}
+
+\setlength{\leftmargini}{5pt}
+\setlength{\leftmarginii}{8pt}
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}[triangle]
 
 \usepackage[backend=biber,citestyle=numeric-comp,sorting=none]{biblatex}
 \addbibresource{main.bib}
