@@ -1,0 +1,19 @@
+\documentclass{beamer}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\usetheme{Copenhagen}
+
+\usepackage[backend=biber,citestyle=numeric-comp,sorting=none]{biblatex}
+\addbibresource{main.bib}
+
+
+\begin{document}
+\begin{frame}{test}
+  test\cite{knuth}日本語も書けるよ。
+\end{frame}
+
+\printbibliography
+\end{document}
+
