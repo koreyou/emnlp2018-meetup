@@ -1,19 +1,52 @@
-\documentclass{beamer}
-\usepackage{xeCJK}
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\usetheme{Copenhagen}
+\input{preambles}
 
-\usepackage[backend=biber,citestyle=numeric-comp,sorting=none]{biblatex}
-\addbibresource{main.bib}
+\title{\bfseries タイトル}
+\subtitle{\bfseries beamerテンプレート}
+\author{@koreyou}
+\date[]{2018/12/9}
+%\institute{}
+%\titlegraphic{\includegraphics[scale=0.3]{logo.png}}
 
+% subject and keywords are embedded as PDF meta info
+%\subject{}
+%\keywords{}
 
 \begin{document}
-\begin{frame}{test}
+
+\frame{\titlepage}
+
+\section{First Section}
+\frame[standout]{\insertsection}
+
+\begin{frame}{Table of contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\begin{frame}[t]{test}
+  \begin{lead}
+    リード文
+  \end{lead}
   test\cite{knuth}日本語も書けるよ。
 \end{frame}
 
-\printbibliography
+\begin{frame}
+
+  Get the presentation slides from:
+
+  \begin{center}blah blah\end{center}
+
+  This presentation is licensed under
+    \href{https://creativecommons.org/publicdomain/zero/1.0/}{
+    CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}.
+
+  \begin{center}\cczero\end{center}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+  \printbibliography[heading=none]
+\end{frame}
+
 \end{document}
 

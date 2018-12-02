@@ -1,0 +1,41 @@
+\documentclass[14pt]{beamer}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+
+\usetheme[sectionpage=none,block=fill]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\captionsetup[subfigure]{subrefformat=simple,labelformat=simple}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+\usepackage{caption}
+\captionsetup[table]{skip=0mm}
+\usepackage{float}
+
+\usepackage[backend=biber,citestyle=numeric-comp,sorting=none]{biblatex}
+\addbibresource{main.bib}
+\renewcommand*{\bibfont}{\scriptsize}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{calc}
+
+
+\newenvironment{lead}{
+  \vspace*{8pt}
+  \begin{beamercolorbox}[wd=\dimexpr\linewidth+20pt\relax,sep=8pt,shadow=false,rounded=false]{block body example}
+}{
+  \end{beamercolorbox}
+}
