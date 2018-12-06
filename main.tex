@@ -15,20 +15,30 @@
 
 \frame{\titlepage}
 
-\section{First Section}
-\frame[standout]{\insertsection}
-
 \begin{frame}{Who am I?}
-  \begin{itemize}
-    \item 是枝祐太
-    \item 某電機会社リサーチャー
-    \item 研究歴
+  \begin{columns}[onlytextwidth]
+  \begin{column}{0.68\linewidth}
     \begin{itemize}
+      \item 是枝祐太
+      \item 某電機会社リサーチャー
+      \item 研究歴
+      \begin{itemize}
         \item 〜2015: 医療＋ロボット（大学）
         \item 〜2016: ロボット＋応用機械学習
         \item 〜現在: 応用機械学習＋自然言語処理
+      \end{itemize}
     \end{itemize}
-  \end{itemize}
+  \end{column}
+  \begin{column}{0.3\linewidth}
+    \begin{itemize}
+      \item[] \raisebox{-0.3\height}{\includegraphics[width=6mm]{fig/GitHub-Mark-64px.png}} koreyou
+      \item[] \raisebox{-0.3\height}{\includegraphics[width=6mm]{fig/Twitter_Social_Icon_Square_Color.png}} koreyou\_
+    \end{itemize}
+    \vspace*{10mm}
+    \only<1>{\adjincludegraphics[width=0.95\linewidth,valign=t]{fig/my_weight_1.png}}
+    \only<2>{\adjincludegraphics[width=0.95\linewidth,valign=t]{fig/my_weight_2.png}}
+  \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Table of contents}
