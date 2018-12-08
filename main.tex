@@ -42,7 +42,11 @@
 \end{frame}
 
 \begin{frame}{tl;dr}
-% TODO: write tl;dr
+\begin{itemize}
+\item 目的：分類の根拠となった箇所のデータを用い低リソースドメインで分類精度向上
+
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Table of contents}
@@ -59,33 +63,45 @@
 \section{背景}
 \frame[standout]{\insertsection}
 
-\begin{frame}{観点付き評判分析}
-\begin{lead}
-    リード文
-\end{lead}
-\begin{itemize}
-\item 本研究は自然言語タスク全般に利用可能
-\begin{itemize}
-    \item わかりやすさのために具体的なタスクを先に紹介
-\end{itemize}
-\item 観点付き評判分析 (Aspect-based sentiment analysis; ABSA)
-\begin{itemize}
-    \item 入力文が各観点について肯定的か否定的かを分類
-\end{itemize}
-\end{itemize}
-\end{frame}
+\begin{frame}
+\frametitle<1>{観点付き評判分析}
+\frametitle<2>{Rationale (根拠、解釈)}
 
-\begin{frame}{Rationale (根拠、解釈)}
 \begin{lead}
-    根拠 (Rationale) 提示型AIが注目されている
+    \only<1>{観点付き評判分析をビークルに研究}
+    \only<2>{根拠 (Rationale) 提示型AIが注目されている}
 \end{lead}
-\begin{itemize}
-\item 分類の\alert{根拠}となる記載箇所
-\begin{itemize}
-    \item なぜその予測をしたかの\alert{解釈}を与えAIを\alert{説明可能}にする
-\end{itemize}
-\item Rationaleを提示する研究が注目されている\cite{lei_2016,ling_2017}
-\end{itemize}
+
+\begin{overlayarea}{\linewidth}{120pt}
+  \only<1>{
+    \begin{itemize}
+    \item 本研究は自然言語タスク全般に利用可能
+    \begin{itemize}
+        \item わかりやすさのために具体的なタスクを先に紹介
+    \end{itemize}
+    \item 観点付き評判分析 (Aspect-based sentiment analysis; ABSA)
+    \begin{itemize}
+        \item 入力文が各観点について肯定的か否定的かを分類
+    \end{itemize}
+    \end{itemize}
+  }
+  \only<2>{
+    \begin{itemize}
+    \item 分類の\alert{根拠}となる記載箇所
+    \begin{itemize}
+        \item なぜその予測をしたかの\alert{解釈}を与えAIを\alert{説明可能}にする
+    \end{itemize}
+    \item Rationaleを提示する研究が注目されている\cite{lei_2016,ling_2017}
+    \end{itemize}
+  }
+\end{overlayarea}
+\begin{figure}[H]
+    \centering
+    \begin{overprint}
+    \onslide<1>\includegraphics{fig/absa.pdf}%
+    \onslide<2>\includegraphics{fig/rationale.pdf}%
+    \end{overprint}
+\end{figure}
 \end{frame}
 
 \begin{frame}{研究目的}
@@ -112,12 +128,16 @@
 \end{itemize}
 \end{itemize}
 
+\begin{columns}[onlytextwidth]
+\begin{column}{0.58\linewidth}
 \vspace*{-8pt}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=40mm]{fig/attention_classifier.pdf}
-  \caption{文分類におけるAttention機構\cite{bao_2018}}
-\end{figure}
+\includegraphics[width=\linewidth]{fig/attention.pdf}
+\end{column}
+\begin{column}{0.4\linewidth}
+\vspace*{-8pt}
+\includegraphics[width=\linewidth]{fig/attention_classifier.pdf}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Attention vs. Rationale}
@@ -135,6 +155,11 @@
     \item 分類学習に適したAttentionを\alert{真(oracle) attention}と呼ぶ
 \end{itemize}
 \end{itemize}
+\vspace*{-8pt}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{fig/attention_vs_rationale.pdf}
+\end{figure}
 \end{frame}
 
 \begin{frame}{提案手法のキーポイント}
@@ -249,8 +274,7 @@
 \section{実験}
 \frame[standout]{\insertsection}
 
-
-\begin{frame}{ABSAでの観点間の転移}
+\begin{frame}{観点間の転移}
 \begin{lead}
     提案手法の有効性を確認
 \end{lead}
@@ -261,9 +285,50 @@
     \item Attention $\neq$ Rationaleを確認
 \end{itemize}
 \end{itemize}
+\vspace*{-8pt}
+\includegraphics{fig/table3.pdf}
 \end{frame}
 
+\begin{frame}{ドメイン間の転移}
+\begin{lead}
+    提案手法の有効性を確認
+\end{lead}
+\begin{itemize}
+\item ドメイン間の転移でも同様の傾向を確認
+\item ターゲットドメインの真attentionを使った \textsc{Oracle}は更に性能が高い
+\end{itemize}
+\vspace*{-8pt}
+\includegraphics{fig/table4.pdf}
+\end{frame}
 
+\begin{frame}{各機能の評価}
+\begin{itemize}
+\item Wasserstein距離を損失を入れたモデルでは$h^{inv}$が共通の空間ある
+\item Rationaleよりも、R2Aで生成したattentionのほうが真attentionに近い
+\end{itemize}
+\begin{columns}[onlytextwidth]
+\begin{column}{0.48\linewidth}
+\vspace*{-8pt}
+\includegraphics{fig/figure5.pdf}
+\end{column}
+\begin{column}{0.48\linewidth}
+\vspace*{-8pt}
+\includegraphics{fig/table6.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Rationaleを使うことの効率性}
+\begin{lead}
+    データを増やすよりRationaleを与える方が効率的
+\end{lead}
+\begin{itemize}
+\item Rationaleのデータを作るくらいならばデータを増やせば良いのではないか？
+\item Rationaleであれば6.5\%〜50\%のデータ量で同等の分類精度を得られる
+\end{itemize}
+\vspace*{-8pt}
+\includegraphics{fig/figure7.pdf}
+\end{frame}
 
 
 
