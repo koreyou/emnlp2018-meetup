@@ -97,6 +97,9 @@
 \end{itemize}
 \end{frame}
 
+\section{提案手法}
+\frame[standout]{\insertsection}
+
 \begin{frame}{文分類におけるAttention機構の活用}
 \begin{lead}
     Attention機構により文分類の精度向上が図れる
@@ -127,26 +130,141 @@
     \item Attentionは連続値(強弱がある)、rationaleは二値
     \item Attentionは分類精度を最大化するよう最適化されている
 \end{itemize}
-\item Rationaleを学習に使うよりも、Rationaleをattention\textbf{風}に変換してから学習に使うほうが良いのでは？
+\item Rationaleを直接学習に使うよりも、Rationaleを \textbf{attention 風} に変換してから学習に使うほうが良いのでは？ $\Rightarrow$\emph{R2A} (rationale to attention)
 \begin{itemize}
-    \item 分類の学習に望ましいAttentionを\alert{真(oracle) attention}と呼ぶ
+    \item 分類学習に適したAttentionを\alert{真(oracle) attention}と呼ぶ
 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Attention}
+\begin{frame}{提案手法のキーポイント}
 \begin{lead}
-    RationaleをAttention風に変換する
+    Rationale$\Rightarrow$真attentionの変換をドメイン転移
 \end{lead}
 \begin{itemize}
-\item Oracle attentionは大量の正解分類データを用い分類を学習することで獲得できる
-\item 正解分類データが少ないドメインではRationale$\Rightarrow$真attentionの変換は学習できない
+\item 真attentionは大量の正解分類データを用い分類を学習することで獲得できる
+\item 正解分類データが少ないドメイン(観点)ではRationale$\Rightarrow$真attentionの変換は学習できない
 \item データが多いドメインでの変換を転移
+\item 仮説：Rationale$\Rightarrow$真attentionは\alert{ドメインによらず共通}
+\begin{itemize}
+    \item e.g. Rationaleの中でも内容語にattentionが強くかかる
 \end{itemize}
-\begin{exampleblock}{仮説}
-Rationale$\Rightarrow$真attentionはドメインによらず共通
-\end{exampleblock}
+\end{itemize}
 \end{frame}
+
+\begin{frame}[c]{提案手法の流れ}
+\begin{figure}[H]
+  \centering
+  \includegraphics{fig/overview.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{問題設定(データ)}
+\small
+  \begin{table}
+    \begin{tabular}{@{} lll @{}}
+      \toprule
+      データ区分 & \vtop{\hbox{\strut 分類正解}\hbox{\strut データ数}} & \vtop{\hbox{\strut rationale}\hbox{\strut 正解データ数}}\\
+      \midrule
+      転移元ドメイン(学習) & 大 & 大(\textbf{疑似的に生成})\\
+      ターゲットドメイン(学習) & 小 & 小\\
+      ターゲットドメイン(評価) & 無 & 無\\
+      \bottomrule
+    \end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}
+\frametitle<1>{提案手法：提案手法の全体構成}
+\frametitle<2>{提案手法(a)}
+\frametitle<3,4>{提案手法(b)}
+\frametitle<5>{提案手法(c)}
+\frametitle<6>{提案手法：End-to-endな学習}
+\frametitle<7>{提案手法：Attentionの転移}
+\frametitle<8>{提案手法：分類器の学習}
+\begin{overlayarea}{\linewidth}{60pt}
+  \only<1>{
+    \begin{itemize}
+      \item (a) 真attentionを生成する分類器
+      \item (b) 各ドメインを共通の空間にマッピング
+      \item (c) attentionからrationaleを生成
+    \end{itemize}
+  }
+  \only<2>{
+    \begin{itemize}
+      \item ソースドメインでattention生成と分類を学習
+      \item 生成されたattentionはR2Aの正解データに
+    \end{itemize}
+  }
+  \only<3,4>{
+    \begin{itemize}
+      \item 各ドメインを共通の空間にマッピング
+      \begin{itemize}
+        \item \texttt{enc}がリッチな特徴量を抽出できるよう言語モデル
+        \item $h^{inv}$が共通の空間になるようWasserstein距離を損失に
+      \end{itemize}
+    \end{itemize}
+  }
+  \only<5>{
+    \begin{itemize}
+      \item Rationaleから真attentionへの変換を学習
+    \end{itemize}
+  }
+  \only<6>{
+    \begin{itemize}
+      \item ソースドメインにおけるモデルをマルチタスク学習
+    \end{itemize}
+  }
+  \only<7>{
+    \begin{itemize}
+      \item ソースドメインで学習したモデルを使用
+      \item ターゲットドメインでRationaleから真attention を生成
+    \end{itemize}
+  }
+  \only<8>{
+    \begin{itemize}
+      \item ターゲットドメインにおいて、真attentionと分類ラベルから分類器をマルチタスク学習
+    \end{itemize}
+  }
+\end{overlayarea}
+
+
+\begin{figure}
+\centering
+    \begin{overprint}
+    \onslide<1>\includegraphics{fig/proposed.pdf}%
+    \onslide<2>\includegraphics{fig/proposed_a.pdf}%
+    \onslide<3>\includegraphics{fig/proposed_b1.pdf}%
+    \onslide<4>\includegraphics{fig/proposed_b2.pdf}%
+    \onslide<5>\includegraphics{fig/proposed_c.pdf}%
+    \onslide<6>\includegraphics{fig/proposed_d.pdf}%
+    \onslide<7>\includegraphics{fig/proposed_e.pdf}%
+    \onslide<8>\includegraphics{fig/proposed_f.pdf}%
+    \end{overprint}
+\end{figure}
+\end{frame}
+
+
+\section{実験}
+\frame[standout]{\insertsection}
+
+
+\begin{frame}{ABSAでの観点間の転移}
+\begin{lead}
+    提案手法の有効性を確認
+\end{lead}
+\begin{itemize}
+\item Rationaleを加えると分類精度が向上
+\item 真attentionを介する提案手法では更に精度向上
+\begin{itemize}
+    \item Attention $\neq$ Rationaleを確認
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
 
 
 \begin{frame}[c]
