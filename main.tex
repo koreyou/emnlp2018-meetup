@@ -43,10 +43,14 @@
 
 \begin{frame}{tl;dr}
 \begin{itemize}
+\item Bat et al. 2018. Deriving Machine Attention from Human Rationales. EMNLP.
 \item 目的：分類の根拠となった箇所のデータを用い低リソースドメインで分類精度向上
-
+\item 手法：ドメイン非依存なRationale$\Rightarrow$attentionの変換を学習
+\begin{itemize}
+\item Rationale:人間が作成した分類の根拠となる記載箇所
 \end{itemize}
-
+\item 結果：観点付き評判分析の観点、ドメイン転移でベースラインを上回った
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Table of contents}
@@ -83,11 +87,12 @@
     \begin{itemize}
         \item 入力文が各観点について肯定的か否定的かを分類
     \end{itemize}
+    \item 本発表では``ドメイン''を``観点''と読みかえて理解
     \end{itemize}
   }
   \only<2>{
     \begin{itemize}
-    \item 分類の\alert{根拠}となる記載箇所
+    \item Rationale$=$分類の\alert{根拠}となる記載箇所
     \begin{itemize}
         \item なぜその予測をしたかの\alert{解釈}を与えAIを\alert{説明可能}にする
     \end{itemize}
@@ -330,17 +335,37 @@
 \includegraphics{fig/figure7.pdf}
 \end{frame}
 
+\section{まとめ}
+\frame[standout]{\insertsection}
+
+\begin{frame}{まとめ}
+\begin{itemize}
+\item Bat et al. 2018. Deriving Machine Attention from Human Rationales. EMNLP.
+\item 目的：分類の根拠となった箇所のデータを用い低リソースドメインで分類精度向上
+\item 手法：ドメイン非依存なRationale$\Rightarrow$attentionの変換を学習
+\begin{itemize}
+\item Rationale:人間が作成した分類の根拠となる記載箇所
+\end{itemize}
+\item 結果：観点付き評判分析の観点、ドメイン転移でベースラインを上回った
+\end{itemize}
+\end{frame}
+
+\begin{frame}{コメント}
+
+\end{frame}
 
 
 \begin{frame}[c]
 
   Get the presentation slides from:
 
-  \begin{center}blah blah\end{center}
+  \begin{center}https://bit.ly/2Us6tFn\end{center}
+  \begin{center}https://github.com/koreyou/emnlp2018-meetup.git\end{center}
 
   This presentation is licensed under
     \href{https://creativecommons.org/publicdomain/zero/1.0/}{
-    CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}.
+    CC0 1.0 Universal (CC0 1.0) Public Domain Dedication}
+    {\scriptsize (except figures derived from the original paper\cite{bao_2018})}.
 
   \begin{center}\cczero\end{center}
 
