@@ -73,8 +73,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="118.6099"
-     inkscape:cy="95.230413"
+     inkscape:cx="52.181329"
+     inkscape:cy="80.944699"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -97,7 +97,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -140,7 +140,7 @@
            y="743.36749"
            x="111.45022"
            id="tspan4362-0"
-           sodipodi:role="line">Attention計算</tspan></text>
+           sodipodi:role="line">Attention生成</tspan></text>
     </g>
     <g
        id="g5257"
@@ -900,7 +900,7 @@
            y="743.36749"
            x="111.45022"
            id="tspan4362-0-8"
-           sodipodi:role="line">Attention計算</tspan></text>
+           sodipodi:role="line">Attention生成</tspan></text>
     </g>
     <g
        id="g6693"
@@ -1426,13 +1426,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="98.569817"
+       x="96.569817"
        y="848.74561"
        id="text4360-4-6-4-1-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4362-6-7-3-2-8"
-         x="98.569817"
+         x="96.569817"
          y="848.74561"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;font-family:'Fira Sans Condensed';-inkscape-font-specification:'Fira Sans Condensed,  Condensed'">Rationale</tspan></text>
     <path
@@ -1444,15 +1444,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="124.90027"
+       x="116.90027"
        y="793.81403"
        id="text4360-4-6-4-1-8-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4362-6-7-3-2-8-3"
-         x="124.90027"
+         x="116.90027"
          y="793.81403"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;font-family:'Fira Sans Condensed';-inkscape-font-specification:'Fira Sans Condensed,  Condensed'">Attention</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;font-family:'Fira Sans Condensed';-inkscape-font-specification:'Fira Sans Condensed,  Condensed'">真Attention</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1468,15 +1468,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="170.3745"
+       x="156.3745"
        y="855.24261"
        id="text4360-4-6-4-1-8-3-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4362-6-7-3-2-8-3-8"
-         x="170.3745"
+         x="156.3745"
          y="855.24261"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;font-family:'Fira Sans Condensed';-inkscape-font-specification:'Fira Sans Condensed,  Condensed'">Attention</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;font-family:'Fira Sans Condensed';-inkscape-font-specification:'Fira Sans Condensed,  Condensed'">真Attention</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1488,7 +1488,7 @@
          id="tspan8131"
          x="15.710277"
          y="908.79083"
-         style="font-size:15px;fill:#0000ff">低リソースドメイン(観点)</tspan></text>
+         style="font-size:15px;fill:#0000ff">ターゲットドメイン(観点)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1500,7 +1500,7 @@
          id="tspan8131-2"
          x="15.461253"
          y="763.02753"
-         style="font-size:15px;fill:#0000ff">転移元</tspan><tspan
+         style="font-size:15px;fill:#0000ff">ソース</tspan><tspan
          sodipodi:role="line"
          x="15.461253"
          y="781.77753"
