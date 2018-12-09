@@ -2,7 +2,7 @@ MAINFILE=main
 
 all: $(MAINFILE).pdf
 
-$(MAINFILE).pdf: *.tex $(MAINFILE).bib
+$(MAINFILE).pdf: *.tex $(MAINFILE).bib fig/*.pdf
 	xelatex -sumctex=1 -interaction=nonstopmode $(MAINFILE).tex
 	biber --bblencoding=utf8 -u -U --output_safechars $(MAINFILE)
 	xelatex -sumctex=1 -interaction=nonstopmode $(MAINFILE).tex
